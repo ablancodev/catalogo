@@ -15,10 +15,10 @@ class Catalogo_Metabox {
     public static function add_metabox() {
         add_meta_box(
             'my-meta-box',
-            __( 'Catalogo Metabox', CATALOGO_PLUGIN_DOMAIN ),
+            __( 'Información', CATALOGO_PLUGIN_DOMAIN ),
             array( __CLASS__, 'render_metabox' ),
             'producto',
-            'advanced',
+            'side',
             'default'
             );
         
@@ -32,7 +32,7 @@ class Catalogo_Metabox {
         wp_nonce_field( 'custom_nonce_action', 'custom_nonce' );
         $outline = '<label for="title_field" style="width:150px; display:inline-block;">'. esc_html__('Precio', CATALOGO_PLUGIN_DOMAIN) .'</label>';
         $title_field = get_post_meta( $post->ID, 'precio', true );
-        $outline .= '<input type="text" name="precio" id="title_field" class="title_field" value="'. esc_attr($title_field) .'" style="width:300px;"/>';
+        $outline .= '<input type="text" name="precio" id="title_field" class="title_field" value="'. esc_attr($title_field) .'" />';
         echo $outline;
     }
     

@@ -1,2 +1,4 @@
 # catalogo
-Sencillo plugin para un catálogo de productos
+Plugin simple para la gestión de productos y su visualización.
+Shortcode:
+[catalogo_listado]

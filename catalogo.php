@@ -63,13 +63,14 @@ class Catalogo_Plugin {
 				'admin_menu' 
 		), 40 );
 
+		require_once 'core/class-catalogo-shortcode.php';
 		require_once 'core/class-catalogo-cpt.php';
 		require_once 'core/class-catalogo-metabox.php';
 
 		// styles & javascript
-		add_action ( 'admin_enqueue_scripts', array (
+		add_action ( 'wp_enqueue_scripts', array (
 				__CLASS__,
-				'admin_enqueue_scripts' 
+				'wp_enqueue_scripts' 
 		) );
 	}
 
@@ -78,14 +79,11 @@ class Catalogo_Plugin {
 	}
 
 
-	public static function admin_enqueue_scripts($page) {
-		// css
-		wp_register_style ( 'catalogo-admin-style', CATALOGO_PLUGIN_URL . '/css/admin-style.css', array (), '1.0.0' );
-		wp_enqueue_style ( 'catalogo-admin-style' );
+	public static function wp_enqueue_scripts($page) {
+	// css
+		wp_register_style ( 'catalogo-style', CATALOGO_PLUGIN_URL . '/css/catalogo-style.css', array (), '1.0.0' );
+		wp_enqueue_style ( 'catalogo-style' );
 
-		// Our javascript
-		wp_register_script ( 'catalogo-admin-scripts', CATALOGO_PLUGIN_URL . '/js/admin-scripts.js', array ( 'jquery' ), '1.0.0', true );
-		wp_enqueue_script ( 'catalogo-admin-scripts' );
 
 	}
 
